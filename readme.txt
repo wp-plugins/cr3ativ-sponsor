@@ -16,7 +16,7 @@ Easily add unlimited sponsorship levels and sponsors, along with company name, l
 
 For your convenience, the plugin also contains a directory called language files, where you will find the mo/po files you may use for translation purposes.
 
-<a href=“http://mythemepreviews.com/plugins/sponsors/”>View the demo</a>.
+This is [an example](http://mythemepreviews.com/plugins/sponsors/ "the demo") inline link.
 
 
 == Installation ==
