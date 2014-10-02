@@ -16,7 +16,7 @@ Easily add unlimited sponsorship levels and sponsors, along with company name, l
 
 For your convenience, the plugin also contains a directory called language files, where you will find the mo/po files you may use for translation purposes.
 
-Here's a link to [Cr3ativ Sponsor Demo](http://mythemepreviews.com/plugins/sponsors/ “the demo”)
+Here's a link to [Cr3ativ Sponsor Demo] (http://mythemepreviews.com/plugins/sponsors/ “the demo”).
 
 
 == Installation ==
