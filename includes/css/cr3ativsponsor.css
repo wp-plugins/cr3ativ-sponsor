@@ -6,13 +6,13 @@
 
 
 h2.sponsorname a, h2.sponsorname a:hover {
-    color: #21759b !important;
+    color: #21759b;
     font-weight: 600;
     text-decoration: none;
 }
 
 h2.sponsorname a:hover {
-    color: #0f3647 !important;
+    color: #0f3647;
 }
 
 .sponsorwrapper:after {
@@ -61,7 +61,7 @@ h2.sponsorname a:hover {
     display: inline-block;
     float: left;
     font-size: 18px;
-    margin: 0 !important;
+    margin: 0;
     text-decoration: none;
 }
 .sponsorwidget {
