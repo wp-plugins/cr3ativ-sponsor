@@ -36,10 +36,13 @@ class cr3ativ_sponsor extends WP_Widget {
 <label for="<?php echo $this->get_field_id('orderby'); ?>"><?php _e('Sorting Method', 'cr3at_sponsor'); ?></label>
 <select id="<?php echo $this->get_field_id('orderby'); ?>" name="<?php echo $this->get_field_name('orderby'); ?>"  style="float:right; width:56%;">
     <option selected="selected" value="none"><?php _e( 'Select One', 'cr3at_sponsor' ); ?></option>
-    <option <?php if ( $orderby == '1' ) { echo ' selected="selected"'; } ?> value="1"><?php _e('ASC', 'cr3at_sponsor'); ?></option>
-    <option <?php if ( $orderby == '2' ) { echo ' selected="selected"'; } ?> value="2"><?php _e('DESC', 'cr3at_sponsor'); ?></option>
+    <option <?php if ( $orderby == 'asc' ) { echo ' selected="selected"'; } ?> value="asc"><?php _e('Asc', 'cr3at_sponsor'); ?></option>
+    <option <?php if ( $orderby == 'desc' ) { echo ' selected="selected"'; } ?> value="desc"><?php _e('Desc', 'cr3at_sponsor'); ?></option>
+    <option <?php if ( $orderby == 'rand' ) { echo ' selected="selected"'; } ?> value="rand"><?php _e('Random', 'cr3at_sponsor'); ?></option>
+    <option <?php if ( $orderby == 'menu_order' ) { echo ' selected="selected"'; } ?> value="menu_order"><?php _e('Page Attributes "Order"', 'cr3at_sponsor'); ?></option>
 </select>
 </p>
+
 <p>
 <label for="<?php echo $this->get_field_id('sponsorlogo'); ?>"><?php _e('Show sponsor logo?', 'cr3at_sponsor'); ?></label>
 <input id="<?php echo $this->get_field_id('sponsorlogo'); ?>" name="<?php echo $this->get_field_name('sponsorlogo'); ?>" type="checkbox" value="1" <?php checked( '1', $sponsorlogo ); ?> style="float:right; margin-right:6px;" />
@@ -95,19 +98,17 @@ class cr3ativ_sponsor extends WP_Widget {
    $cr3ativsponsor_level = $instance['cr3ativsponsor_level'];
    $orderby = $instance['orderby'];
    echo $before_widget;
-   if( $orderby == '1' ) {
-   $orderby = 'ASC';
-   } else {
-   $orderby = 'DESC';
-   }
       
-global $post;
-    
+global $post; 
+        
+    if( $cr3ativsponsor_level == ('none') ) { $cr3ativsponsor_level = 'all';} else { };
+    if( $orderby == ('none') ) { $orderby = 'rand';} else { };
     if( $cr3ativsponsor_level != ('all') ) {      
 		$args = array(
 		'post_type' => 'cr3ativsponsor',
         'posts_per_page' => 99999999,
         'order' => $orderby,
+        'orderby' => $orderby,
         'tax_query' => array(
             array(
                 'taxonomy' => 'cr3ativsponsor_level',
@@ -119,6 +120,7 @@ global $post;
 		$args = array(
 		'post_type' => 'cr3ativsponsor',
         'order' => $orderby,
+        'orderby' => $orderby,
         'posts_per_page' => 999999
 		);
    }
@@ -146,9 +148,9 @@ global $post;
         
      if( $sponsorlogo == '1' ) { 
          if( $sponsorlink == '1' ) { ?>
-            <a href="<?php echo ($temp_sponsorurl); ?>" target="_blank"><?php the_post_thumbnail( 'full', array( 'class' => 'alignleft' ) ); ?></a>
+         <a href="<?php echo ($temp_sponsorurl); ?>" target="_blank"><div class="sponsor_image"><?php the_post_thumbnail( 'full', array( 'class' => 'alignleft' ) ); ?></div></a>
      <?php ;} else { ?>
-             <?php the_post_thumbnail( 'full'); ?>
+         <div class="sponsor_image"><?php the_post_thumbnail( 'full'); ?></div>
      <?php ;} 
          
      ;}

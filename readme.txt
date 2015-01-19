@@ -3,7 +3,7 @@ Contributors: Cr3ativ
 Tags: sponsors, events
 Requires at least: 3.0.1
 Tested up to: 4.0
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -53,9 +53,9 @@ Here is what each part of that short code means:
 
 sponsor_level - this is required to request the short code to work
 
-category - this would be the sponsor level.  You would type in the ‘slug’ name of the sponsor level you created.  To determine the ‘slug’ name, click ‘Sponsor Level’ under the Sponsor menu option and you will see all the levels you have created, the level you would type in here is what is shown (exactly shown) in the ‘slug’ column.
+category - this would be the sponsor level.  You would type in the ‘slug’ name of the sponsor level you created.  To determine the ‘slug’ name, click ‘Sponsor Level’ under the Sponsor menu option and you will see all the levels you have created, the level you would type in here is what is shown (exactly shown) in the ‘slug’ column.  If you want all sponsors, just skip this step.
 
-orderby - type ‘ASC’ or ‘DESC’ to change how the order of the sponsors
+orderby - type ‘asc’ to order by the sponsors by the first created (post date) - meaning the first sponsor you created will appear first, type ‘desc’ to order by last created (post date) - meaning the last sponsor you created will appear first, type ‘rand’ to order by random (each time the page refreshes the order will change) or type ‘menu_order’ if you have placed numerical values in the Page Attributes ‘Order’ to order specific to your needs.  If you choose ‘menu_order’, they numerical system will be desc meaning 5, 4, 3, 2, 1 order.
 
 columns - you can enter ‘1’, ‘2’, ‘3’ or ‘4’ here
 
@@ -74,7 +74,7 @@ The Cr3ativ Sponsor plugin comes not only with a useful widget to display sponso
 
 Title - Title that will appear above the widget
 
-Sorting Method - select ASC or DESC for your sorting options
+orderby - choose ‘Asc’ to order by the sponsors by the first created (post date) - meaning the first sponsor you created will appear first, choose ‘Desc’ to order by last created (post date) - meaning the last sponsor you created will appear first, choose ‘Random’ to order by random (each time the page refreshes the order will change) or choose ‘Page Attributes "Order"’ if you have placed numerical values in the Page Attributes ‘Order’ to order specific to your needs.  If you choose ‘Page Attributes "Order”, they numerical system will be desc meaning 5, 4, 3, 2, 1 order.
 
 Show sponsor logo? - If this is checked, the featured image set under the sponsor will show.
 
@@ -105,6 +105,9 @@ Styling for these page templates are included in the includes directory under :
 
 
 == Changelog ==
+
+= 1.0.2 =
+* Updated plugin to add a div around the featured image in case of custom CSS is desired to target the image.  Added ‘Attributes’ section to the post screen so users can control the order of the sponsors by a numerical system they deem necessary.  Also updated the orderby fields to include the Page Attributes "Order" and Random.  Also created a fallback for the shortcode and widget on the category if none is selected, the loop shall (by default) include all sponsors.  Updated language files.
 
 = 1.0.1 =
 * Updated stylesheet to remove the !important so as not to conflict with any themes or other plugins

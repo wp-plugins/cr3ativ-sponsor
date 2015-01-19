@@ -5,7 +5,7 @@
  * Description: Custom written plugin for your sponsor needs on your WordPress site.
  * Author: Jonathan Atkinson
  * Author URI: http://cr3ativ.com/
- * Version: 1.0.1
+ * Version: 1.0.2
  */
 
 /* Place custom code below this line. */
@@ -74,7 +74,7 @@ function create_cr3ativsponsor() {
 			'capability_type' => 'post',
 			'hierarchical' => false,
 			'menu_position' => null,
-			'supports' => array('title','editor','thumbnail')
+			'supports' => array('title','editor','thumbnail', 'page-attributes')
         );
        
 
@@ -218,17 +218,16 @@ function sponsor_level_cat_func($atts, $content) {
             ), $atts));
 
     global $post;
-    if( $orderby == 'ASC' ) {
-       $orderby = 'ASC';
-       } else {
-       $orderby = 'DESC';
-    }
     
+
+    if( $category == ('') ) { $category = 'all';} else { };
+    if( $orderby == ('') ) { $orderby = 'rand';} else { };
     if( $category != ('all') ) {      
 		$args = array(
 		'post_type' => 'cr3ativsponsor',
         'posts_per_page' => 99999999,
         'order' => $orderby,
+        'orderby' => $orderby,
         'tax_query' => array(
             array(
                 'taxonomy' => 'cr3ativsponsor_level',
@@ -240,6 +239,7 @@ function sponsor_level_cat_func($atts, $content) {
 		$args = array(
 		'post_type' => 'cr3ativsponsor',
         'order' => $orderby,
+        'orderby' => $orderby,
         'posts_per_page' => 999999
 		);
    }
@@ -273,9 +273,9 @@ function sponsor_level_cat_func($atts, $content) {
         
      if( $image == 'yes' ) { 
          if( $link == 'yes' ) { 
-            $output .= '<a href="'.$temp_sponsorurl.'" target="_blank">'.$temp_image.'</a>';
+            $output .= '<a href="'.$temp_sponsorurl.'" target="_blank"><div class="sponsor_image">'.$temp_image.'</div></a>';
      ;} else {
-             $output .= $temp_image;
+             $output .= '<div class="sponsor_image">'.$temp_image.'</div>';
          ;}
          
      ;} 
