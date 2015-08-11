@@ -2,8 +2,8 @@
 Contributors: Cr3ativ
 Tags: sponsors, events
 Requires at least: 3.0.1
-Tested up to: 4.2
-Stable tag: 1.0.2
+Tested up to: 4.3
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -105,6 +105,9 @@ Styling for these page templates are included in the includes directory under :
 
 
 == Changelog ==
+
+= 1.1.0 =
+* Updated widget section to support WP 4.3.
 
 = 1.0.2 =
 * Updated plugin to add a div around the featured image in case of custom CSS is desired to target the image.  Added ‘Attributes’ section to the post screen so users can control the order of the sponsors by a numerical system they deem necessary.  Also updated the orderby fields to include the Page Attributes "Order" and Random.  Also created a fallback for the shortcode and widget on the category if none is selected, the loop shall (by default) include all sponsors.  Updated language files.

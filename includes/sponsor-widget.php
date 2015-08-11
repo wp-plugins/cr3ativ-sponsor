@@ -4,7 +4,7 @@ class cr3ativ_sponsor extends WP_Widget {
 
 	// constructor
 	function cr3ativ_sponsor() {
-        parent::WP_Widget(false, $name = __('Sponsor Loop', 'cr3at_sponsor') );
+        parent::__construct(false, $name = __('Sponsor Loop', 'cr3at_sponsor') );
     }
 
 	// widget form creation
