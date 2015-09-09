@@ -17,6 +17,7 @@ class cr3ativ_sponsor extends WP_Widget {
      $sponsorlink = esc_attr($instance['sponsorlink']);
      $sponsorbio = esc_attr($instance['sponsorbio']);
      $orderby = esc_attr($instance['orderby']); 
+     $itemstodisplay = esc_attr($instance['itemstodisplay']); 
      $cr3ativsponsor_level = esc_attr($instance['cr3ativsponsor_level']);
 } else { 
      $title = ''; 
@@ -25,6 +26,7 @@ class cr3ativ_sponsor extends WP_Widget {
      $sponsorlink = '';
      $sponsorbio = '';
      $orderby = '';
+     $itemstodisplay = ''; 
      $cr3ativsponsor_level = '';
 } 
 ?>
@@ -41,6 +43,10 @@ class cr3ativ_sponsor extends WP_Widget {
     <option <?php if ( $orderby == 'rand' ) { echo ' selected="selected"'; } ?> value="rand"><?php _e('Random', 'cr3at_sponsor'); ?></option>
     <option <?php if ( $orderby == 'menu_order' ) { echo ' selected="selected"'; } ?> value="menu_order"><?php _e('Page Attributes "Order"', 'cr3at_sponsor'); ?></option>
 </select>
+</p>
+<p>
+<label for="<?php echo $this->get_field_id('itemstodisplay'); ?>"><?php _e('How many to show?', 'cr3at_sponsor'); ?></label>
+<input id="<?php echo $this->get_field_id('itemstodisplay'); ?>" name="<?php echo $this->get_field_name('itemstodisplay'); ?>" type="text" value="<?php echo $itemstodisplay; ?>" style="float:right; width:56%;" />
 </p>
 
 <p>
@@ -82,6 +88,7 @@ class cr3ativ_sponsor extends WP_Widget {
       $instance['sponsorname'] = strip_tags($new_instance['sponsorname']);
       $instance['sponsorlink'] = strip_tags($new_instance['sponsorlink']);
       $instance['sponsorbio'] = strip_tags($new_instance['sponsorbio']);
+      $instance['itemstodisplay'] = $new_instance['itemstodisplay'];
       $instance['cr3ativsponsor_level'] = strip_tags($new_instance['cr3ativsponsor_level']);
      return $instance;
 }
@@ -95,6 +102,7 @@ class cr3ativ_sponsor extends WP_Widget {
    $sponsorname = $instance['sponsorname'];
    $sponsorlink = $instance['sponsorlink'];
    $sponsorbio = $instance['sponsorbio'];
+   $itemstodisplay = $instance['itemstodisplay'];
    $cr3ativsponsor_level = $instance['cr3ativsponsor_level'];
    $orderby = $instance['orderby'];
    echo $before_widget;
@@ -106,7 +114,7 @@ global $post;
     if( $cr3ativsponsor_level != ('all') ) {      
 		$args = array(
 		'post_type' => 'cr3ativsponsor',
-        'posts_per_page' => 99999999,
+        'posts_per_page' => $itemstodisplay,
         'order' => $orderby,
         'orderby' => $orderby,
         'tax_query' => array(
@@ -121,7 +129,7 @@ global $post;
 		'post_type' => 'cr3ativsponsor',
         'order' => $orderby,
         'orderby' => $orderby,
-        'posts_per_page' => 999999
+        'posts_per_page' => $itemstodisplay
 		);
    }
    
@@ -143,23 +151,23 @@ global $post;
         
         ?>
     
-     <div class="sponsorwidget">
+     <div class="cr3_sponsorwidget">
          <?php 
         
      if( $sponsorlogo == '1' ) { 
          if( $sponsorlink == '1' ) { ?>
-         <a href="<?php echo ($temp_sponsorurl); ?>" target="_blank"><div class="sponsor_image"><?php the_post_thumbnail( 'full', array( 'class' => 'alignleft' ) ); ?></div></a>
+         <a href="<?php echo ($temp_sponsorurl); ?>" target="_blank"><div class="cr3_sponsor_image"><?php the_post_thumbnail( 'full', array( 'class' => 'alignleft' ) ); ?></div></a>
      <?php ;} else { ?>
-         <div class="sponsor_image"><?php the_post_thumbnail( 'full'); ?></div>
+         <div class="cr3_sponsor_image"><?php the_post_thumbnail( 'full'); ?></div>
      <?php ;} 
          
      ;}
      if( $sponsorname == '1' ) { 
          if( $sponsorlink == '1' ) { ?>
          
-            <h2 class="sponsorname"><a href="<?php echo ($temp_sponsorurl); ?>" target="_blank"><?php echo ($temp_title); ?></a></h2>
+            <h2 class="cr3_sponsorname"><a href="<?php echo ($temp_sponsorurl); ?>" target="_blank"><?php echo ($temp_title); ?></a></h2>
      <?php ;} else { ?>
-             <h2 class="sponsorname"><?php echo ($temp_title); ?></h2>
+             <h2 class="cr3_sponsorname"><?php echo ($temp_title); ?></h2>
      <?php ;} 
          
      ;} 

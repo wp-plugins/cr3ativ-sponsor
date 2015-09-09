@@ -5,7 +5,7 @@
  * Description: Custom written plugin for your sponsor needs on your WordPress site.
  * Author: Jonathan Atkinson
  * Author URI: http://cr3ativ.com/
- * Version: 1.1.0
+ * Version: 1.2.0
  */
 
 /* Place custom code below this line. */
@@ -213,6 +213,7 @@ function sponsor_level_cat_func($atts, $content) {
             'title'    => 'yes',
             'link'     => 'yes',
             'bio'      => 'yes',
+            'show'      => '',
             'orderby'      => '',
             'category'      => ''
             ), $atts));
@@ -225,7 +226,7 @@ function sponsor_level_cat_func($atts, $content) {
     if( $category != ('all') ) {      
 		$args = array(
 		'post_type' => 'cr3ativsponsor',
-        'posts_per_page' => 99999999,
+        'posts_per_page' => $show,
         'order' => $orderby,
         'orderby' => $orderby,
         'tax_query' => array(
@@ -240,7 +241,7 @@ function sponsor_level_cat_func($atts, $content) {
 		'post_type' => 'cr3ativsponsor',
         'order' => $orderby,
         'orderby' => $orderby,
-        'posts_per_page' => 999999
+        'posts_per_page' => $show
 		);
    }
    
@@ -252,7 +253,7 @@ function sponsor_level_cat_func($atts, $content) {
     $temp_excerpt = '';
     $temp_image = '';
     
-     $output .= '<div class="sponsorwrapper">';
+     $output .= '<div class="cr3_sponsorwrapper">';
     
     if (have_posts($args)) : while (have_posts()) : the_post();
     
@@ -273,17 +274,17 @@ function sponsor_level_cat_func($atts, $content) {
         
      if( $image == 'yes' ) { 
          if( $link == 'yes' ) { 
-            $output .= '<a href="'.$temp_sponsorurl.'" target="_blank"><div class="sponsor_image">'.$temp_image.'</div></a>';
+            $output .= '<a href="'.$temp_sponsorurl.'" target="_blank"><div class="cr3_sponsor_image">'.$temp_image.'</div></a>';
      ;} else {
-             $output .= '<div class="sponsor_image">'.$temp_image.'</div>';
+             $output .= '<div class="cr3_sponsor_image">'.$temp_image.'</div>';
          ;}
          
      ;} 
      if( $title == 'yes' ) { 
          if( $link == 'yes' ) { 
-            $output .= '<h2 class="sponsorname"><a href="'.$temp_sponsorurl.'" target="_blank">'.$temp_title.'</a></h2>';
+            $output .= '<h2 class="cr3_sponsorname"><a href="'.$temp_sponsorurl.'" target="_blank">'.$temp_title.'</a></h2>';
      ;} else {
-             $output .= '<h2 class="sponsorname">'.$temp_title.'</h2>';
+             $output .= '<h2 class="cr3_sponsorname">'.$temp_title.'</h2>';
          ;}
          
      ;} 

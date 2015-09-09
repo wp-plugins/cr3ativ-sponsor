@@ -3,7 +3,7 @@ Contributors: Cr3ativ
 Tags: sponsors, events
 Requires at least: 3.0.1
 Tested up to: 4.3
-Stable tag: 1.1.0
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -67,6 +67,8 @@ link - enter ‘yes’ or ‘no’ to have the image and/or name linked with the
 
 bio - enter ‘yes’ or ‘no’ to display the content from the sponsor page
 
+show - enter # of sponsors you would like to show.  Enter something like 999999 to show all.
+
 
 == Widget ==
 
@@ -75,6 +77,8 @@ The Cr3ativ Sponsor plugin comes not only with a useful widget to display sponso
 Title - Title that will appear above the widget
 
 orderby - choose ‘Asc’ to order by the sponsors by the first created (post date) - meaning the first sponsor you created will appear first, choose ‘Desc’ to order by last created (post date) - meaning the last sponsor you created will appear first, choose ‘Random’ to order by random (each time the page refreshes the order will change) or choose ‘Page Attributes "Order"’ if you have placed numerical values in the Page Attributes ‘Order’ to order specific to your needs.  If you choose ‘Page Attributes "Order”, they numerical system will be desc meaning 5, 4, 3, 2, 1 order.
+
+How many to show? - Enter # of sponsors you would like to show.  Enter something like 999999 to show all.
 
 Show sponsor logo? - If this is checked, the featured image set under the sponsor will show.
 
@@ -105,6 +109,9 @@ Styling for these page templates are included in the includes directory under :
 
 
 == Changelog ==
+
+= 1.2.0 =
+* Updated sponsor-widget.php, cr3ativ-sponsor.php and /includes/css/cr3ativsponsor.css to correct issue with Google’s AdBlock blocking the images and info by replacing the div class names to add a prefix in front of each class and id.  Also added an attribute to the shortcode and widget to allow users to specify how many to show.  Enter 999999 to show all sponsors for that category.
 
 = 1.1.0 =
 * Updated widget section to support WP 4.3.
