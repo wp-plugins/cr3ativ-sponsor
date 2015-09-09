@@ -45,7 +45,7 @@ Here is [the demo](http://mythemepreviews.com/plugins/sponsors/ "the demo").
 
 To display sponsors on any post or page using the text based short code, copy/paste this short code into the desired area and just change the information to what you want it to display.  For example:
 
-[sponsor_level category="all" orderby="DESC" columns="4" image="yes" title="yes" link="yes" bio="yes"]
+[sponsor_level category="all" orderby="DESC" columns="4" image="yes" title="yes" link="yes" bio="yes" show=“2”]
 
 The above short code will display all sponsors in DESC order as a 4 column layout with the featured image, sponsor name and the content.  The featured image and sponsor name will be linked.
 
